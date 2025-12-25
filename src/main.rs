@@ -85,7 +85,7 @@ fn is_executeable() -> String {
 fn main() {
     colog::init();
 
-    info!("The bun installer for termux!");
+    info!("The bun installer & warpper for termux!");
 
     // 1. CLI args
     let args: Vec<String> = env::args().collect();
@@ -109,11 +109,11 @@ fn main() {
     let is_android = os_str.to_lowercase().contains("android");
 
     if is_android {
-        info!("Detected Android kernel.");
+        info!("Detected Android OS.");
     } else if no_os_check {
         info!("Skipping OS check because --no-os-check was used 🔧");
     } else {
-        error!("Not Android.\nUse '--no-os-check' to override.");
+        error!("Not an Android.\nUse '--no-os-check' to override.");
         exit(1);
     }
 
@@ -126,7 +126,7 @@ fn main() {
 
     let bun_path = match download_bun().as_str() {
         "exists" => "~/.bun/bin/bun [exists]".to_string(),
-        other => other.to_string(),  // 그 외는 그냥 본문 반환
+        other => other.to_string(),
     };
 
     let real_path = match bun_path.as_str() {
