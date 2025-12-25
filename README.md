@@ -9,3 +9,4 @@ https://github.com/hanseonghyeonnam/warpBun.git
 ```
 3. Just build with `make release`!
 	- It can takes a lot of time :)
+4. Just execute using: `./warpBun`. Done!
